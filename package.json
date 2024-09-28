@@ -6,12 +6,25 @@
 		"run-source": "node index.js"
 	},
 	"dependencies": {
-		"@actions/core": "^1.2.6"
+		"@actions/core": "1.10.1"
 	},
 	"devDependencies": {
+<<<<<<< HEAD
 		"@types/node": "^14.14.35",
 		"@vercel/ncc": "^0.28.5",
 		"override-require": "^1.1.1",
 		"tslib": "^2.1.0"
+=======
+		"@types/node": "22.7.3",
+		"@vercel/ncc": "0.38.2",
+		"override-require": "1.1.1",
+		"tslib": "2.7.0"
+	},
+	"main": "index.js",
+	"name": "typedocusaurus",
+	"scripts": {
+		"pkg": "ncc build src/index.ts -o dist -e typedoc -e typedoc-plugin-markdown",
+		"run-source": "node index.js"
+>>>>>>> 22ff68f9a431a08bb82308e84efd37877e19c492
 	}
 }
