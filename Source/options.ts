@@ -75,6 +75,7 @@ export const getOptions = (
 		siteDir,
 		outputDirectory: path.resolve(siteDir, options.docsRoot, options.out),
 	};
+
 	return options;
 };
 

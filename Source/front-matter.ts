@@ -50,6 +50,7 @@ ${Object.entries(vars)
 	)
 	.join("\n")}
 ---`;
+
 	return yaml;
 };
 
@@ -86,10 +87,13 @@ export class FrontMatterComponent extends RendererComponent {
 
 	getYamlItems(page: PageEvent): any {
 		const pageTitle = this.getTitle(page);
+
 		const sidebarLabel = this.getSidebarLabel(page);
+
 		let items: FrontMatter = {
 			title: pageTitle,
 		};
+
 		if (sidebarLabel && sidebarLabel !== pageTitle) {
 			items = { ...items, sidebar_label: sidebarLabel };
 		}
@@ -124,6 +128,7 @@ export class FrontMatterComponent extends RendererComponent {
 
 	getTitle(page: PageEvent) {
 		const readmeTitle = this.readmeTitle || page.project.name;
+
 		if (page.url === this.entryDocument && page.url !== page.project.url) {
 			return readmeTitle;
 		}

@@ -1,4 +1,5 @@
 let core = require("@actions/core");
+
 const { rmdir } = require("fs").promises;
 
 const path = require("path");
@@ -18,6 +19,7 @@ if (process.env.DEV) {
 		const sidebarFile = core.getInput("sidebarFile");
 		// Where you'll save your MD files
 		const targetPath = core.getInput("targetPath"); // e.g. "/path/to/docusaurus/website/docs/api/js/";
+
 		const docusaurusPath = core.getInput("docusaurusPath");
 
 		const overrideCondition = (request) => request.startsWith("typedoc");

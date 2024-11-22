@@ -45,6 +45,7 @@ export class SidebarComponent extends RendererComponent {
 										out,
 										navItem.url,
 									);
+
 									if (
 										navItem.children &&
 										navItem.children.length > 0
@@ -64,6 +65,7 @@ export class SidebarComponent extends RendererComponent {
 														: [],
 												),
 											);
+
 										return this.getSidebarCategory(
 											navItem.title,
 											[url, ...sidebarCategoryChildren],
@@ -72,6 +74,7 @@ export class SidebarComponent extends RendererComponent {
 									return url;
 								})
 							: [];
+
 						return this.getSidebarCategory(
 							navigationItem.title,
 							sidebarCategoryItems,
@@ -106,6 +109,7 @@ export class SidebarComponent extends RendererComponent {
 	 */
 	getUrlKey(out: string, url: string) {
 		const urlKey = url.replace(".md", "");
+
 		return out ? out + "/" + urlKey : urlKey;
 	}
 }
