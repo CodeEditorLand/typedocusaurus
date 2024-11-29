@@ -79,6 +79,7 @@ export class FrontMatterComponent extends RendererComponent {
 			[PageEvent.END]: this.onPageEnd,
 		});
 	}
+
 	onPageEnd(page: PageEvent) {
 		if (page.contents) {
 			page.contents = prependYAML(page.contents, this.getYamlItems(page));
@@ -97,6 +98,7 @@ export class FrontMatterComponent extends RendererComponent {
 		if (sidebarLabel && sidebarLabel !== pageTitle) {
 			items = { ...items, sidebar_label: sidebarLabel };
 		}
+
 		return {
 			...items,
 			custom_edit_url: null,
@@ -108,6 +110,7 @@ export class FrontMatterComponent extends RendererComponent {
 		if (!this.sidebar) {
 			return null;
 		}
+
 		if (page.url === this.entryDocument) {
 			return page.url === page.project.url
 				? this.sidebar.indexLabel
@@ -117,6 +120,7 @@ export class FrontMatterComponent extends RendererComponent {
 		if (page.url === this.globalsFile) {
 			return this.sidebar.indexLabel;
 		}
+
 		return this.sidebar.fullNames
 			? page.model.getFullName()
 			: page.model.name;
@@ -132,6 +136,7 @@ export class FrontMatterComponent extends RendererComponent {
 		if (page.url === this.entryDocument && page.url !== page.project.url) {
 			return readmeTitle;
 		}
+
 		return getPageTitle(page);
 	}
 }

@@ -18,6 +18,7 @@ export async function render(
 	);
 
 	output.settings = this.application.options.getRawValues();
+
 	output.urls = this.theme!.getUrls(project);
 
 	this.trigger(output);
@@ -25,11 +26,14 @@ export async function render(
 	if (!output.isDefaultPrevented) {
 		output.urls?.forEach((mapping: UrlMapping, i) => {
 			this.renderDocument(output.createPageEvent(mapping));
+
 			console.log(
 				`\rGenerated ${i + 1} of ${output.urls?.length} TypeDoc docs`,
 			);
 		});
+
 		console.log(`\n`);
+
 		this.trigger(RendererEvent.END, output);
 	}
 }

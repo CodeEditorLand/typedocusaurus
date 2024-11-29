@@ -71,6 +71,7 @@ export class SidebarComponent extends RendererComponent {
 											[url, ...sidebarCategoryChildren],
 										);
 									}
+
 									return url;
 								})
 							: [];
@@ -80,6 +81,7 @@ export class SidebarComponent extends RendererComponent {
 							sidebarCategoryItems,
 						);
 					}
+
 					return this.getUrlKey(out, navigationItem.url);
 				})
 			: [];
@@ -121,5 +123,6 @@ export const writeSidebar = (sidebar: SidebarOptions, content: string) => {
 	if (!fs.existsSync(path.dirname(sidebar.sidebarPath))) {
 		fs.mkdirSync(path.dirname(sidebar.sidebarPath));
 	}
+
 	fs.writeFileSync(sidebar.sidebarPath, content);
 };

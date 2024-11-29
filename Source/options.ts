@@ -61,6 +61,7 @@ export const getOptions = (
 			...DEFAULT_PLUGIN_OPTIONS.sidebar,
 			...opts.sidebar,
 		} as SidebarOptions;
+
 		options = {
 			...options,
 			sidebar: {
@@ -86,6 +87,7 @@ export const getOptions = (
 export const addOptions = (app: Application) => {
 	// configure deault typedoc options
 	app.options.addReader(new TypeDocReader());
+
 	app.options.addReader(new TSConfigReader());
 
 	// expose plugin options to typedoc so we can access if required
